@@ -1,0 +1,271 @@
+/* ========================================
+   APEX LEGENDS 攻略站 - 主样式表
+   ======================================== */
+
+/* --- CSS 变量 --- */
+:root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --primary-light: #ff6b6b;
+    --secondary: #fe8d00;
+    --accent: #fca311;
+    --dark-bg: #0a0a0f;
+    --dark-bg2: #12121a;
+    --dark-bg3: #1a1a2e;
+    --card-bg: rgba(26, 26, 46, 0.9);
+    --card-border: rgba(230, 57, 70, 0.25);
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0c8;
+    --text-muted: #6a6a8a;
+    --gradient-primary: linear-gradient(135deg, #e63946, #fe8d00);
+    --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+    --shadow-glow: 0 0 30px rgba(230, 57, 70, 0.3);
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --font-main: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-display: 'Orbitron', 'Noto Sans SC', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+    font-family: var(--font-main);
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; position: relative; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.section-title .accent {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-left: 8px;
+}
+.section-desc { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+/* 导航栏 */
+.navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+.navbar.scrolled { background: rgba(10, 10, 15, 0.95); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+.nav-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.nav-logo a { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 900; font-family: var(--font-display); }
+.logo-icon { font-size: 1.8rem; }
+.logo-text { color: var(--text-primary); }
+.logo-accent { color: var(--primary); }
+.nav-menu { display: flex; align-items: center; gap: 8px; }
+.nav-link { padding: 8px 18px; border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); transition: var(--transition); position: relative; }
+.nav-link:hover, .nav-link.active { color: var(--text-primary); background: rgba(230, 57, 70, 0.1); }
+.nav-link.active { color: var(--primary); }
+.nav-toggle { display: none; font-size: 1.5rem; color: var(--text-primary); cursor: pointer; padding: 8px; }
+
+/* 英雄区 Hero */
+.hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--dark-bg); }
+.hero-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(230, 57, 70, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(254, 141, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(10, 10, 15, 0.8) 0%, transparent 40%);
+    z-index: 1;
+}
+.hero-particles { position: absolute; inset: 0; z-index: 1; }
+.hero-content { position: relative; z-index: 2; text-align: center; padding: 0 24px; max-width: 900px; }
+.hero-title { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 32px; }
+.hero-subtitle { font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 6px; color: var(--secondary); opacity: 0.8; text-transform: uppercase; }
+.hero-main-title {
+    font-family: var(--font-display); font-size: 5.5rem; font-weight: 900;
+    background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text;
+    color: transparent; line-height: 1.1; text-shadow: 0 0 60px rgba(230, 57, 70, 0.3); letter-spacing: 4px;
+}
+.hero-sub-text { font-size: 1.8rem; font-weight: 700; color: var(--text-primary); letter-spacing: 2px; }
+.hero-desc { font-size: 1.15rem; color: var(--text-secondary); margin-bottom: 40px; line-height: 1.8; }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 16px 36px; border-radius: 50px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; font-family: var(--font-main); }
+.btn-primary { background: var(--gradient-primary); color: white; box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(230, 57, 70, 0.5); }
+.btn-secondary { background: rgba(255, 255, 255, 0.08); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.15); }
+.btn-secondary:hover { background: rgba(255, 255, 255, 0.15); transform: translateY(-3px); }
+.hero-stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 900; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+.scroll-indicator { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text-muted); font-size: 0.8rem; animation: bounce 2s infinite; cursor: pointer; }
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
+
+/* 英雄区域 */
+.legends-section { background: var(--dark-bg2); }
+.legend-filters, .weapon-filters { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+.filter-btn { padding: 10px 24px; border-radius: 50px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: var(--text-secondary); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: var(--transition); font-family: var(--font-main); }
+.filter-btn:hover { background: rgba(230,57,70,0.15); color: var(--text-primary); border-color: rgba(230,57,70,0.3); }
+.filter-btn.active { background: var(--gradient-primary); color: white; border-color: transparent; box-shadow: 0 4px 15px rgba(230,57,70,0.3); }
+.legends-grid, .weapons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.legend-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); position: relative; cursor: pointer; }
+.legend-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-glow); border-color: rgba(230,57,70,0.5); }
+.legend-card-header { height: 180px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.legend-card-header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, var(--dark-bg3) 100%); z-index: 1; }
+.legend-card-bg { position: absolute; inset: 0; opacity: 0.2; background: radial-gradient(circle at center, var(--bg-color, #e63946) 0%, transparent 70%); }
+.legend-card .legend-avatar { font-size: 5rem; position: relative; z-index: 2; filter: drop-shadow(0 0 20px rgba(230,57,70,0.3)); }
+.legend-card .legend-class-badge { position: absolute; top: 12px; right: 12px; z-index: 3; padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; color: white; }
+.legend-card-body { padding: 20px; }
+.legend-card-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+.legend-card-body .legend-name-en { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.legend-card-body .legend-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.legend-skills { display: flex; flex-direction: column; gap: 8px; }
+.legend-skill { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-secondary); }
+.skill-icon { width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink: 0; }
+.skill-icon.passive { background: rgba(252,163,17,0.2); color: var(--accent); }
+.skill-icon.tactical { background: rgba(230,57,70,0.2); color: var(--primary); }
+.skill-icon.ultimate { background: rgba(254,141,0,0.2); color: var(--secondary); }
+.skill-name { font-weight: 600; color: var(--text-primary); margin-right: 6px; }
+
+/* 武器区域 */
+.weapons-section { background: var(--dark-bg3); }
+.weapon-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-lg); padding: 24px; transition: var(--transition); cursor: pointer; }
+.weapon-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-glow); border-color: rgba(230,57,70,0.3); }
+.weapon-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.weapon-card-header h3 { font-size: 1.2rem; font-weight: 700; }
+.weapon-type-badge { padding: 3px 10px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; color: white; white-space: nowrap; }
+.weapon-damage { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+.damage-tag { padding: 2px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; background: rgba(255,255,255,0.06); color: var(--text-secondary); }
+.weapon-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.weapon-stat { display: flex; justify-content: space-between; font-size: 0.8rem; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.weapon-stat-label { color: var(--text-muted); }
+.weapon-stat-value { color: var(--text-primary); font-weight: 600; }
+
+/* 地图区域 */
+.maps-section { background: var(--dark-bg2); }
+.maps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 28px; }
+.map-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); }
+.map-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-glow); border-color: rgba(230,57,70,0.4); }
+.map-card-preview { height: 220px; display: flex; align-items: center; justify-content: center; font-size: 5rem; position: relative; overflow: hidden; }
+.map-card-preview::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,10,15,0.9) 100%); z-index: 1; }
+.map-card-preview span { position: relative; z-index: 2; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5)); }
+.map-card-body { padding: 20px; }
+.map-card-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+.map-card-body .map-env { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+.map-card-body .map-desc { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
+.map-hotzones { display: flex; flex-wrap: wrap; gap: 6px; }
+.hotzone-tag { padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; background: rgba(230,57,70,0.15); color: var(--primary-light); border: 1px solid rgba(230,57,70,0.2); }
+
+/* 版本排行 */
+.tierlist-section { background: var(--dark-bg3); }
+.tier-legend { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.tier-badge { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem; font-family: var(--font-display); }
+.tier-badge.tier-s { background: linear-gradient(135deg, #ff6b35, #ff2d2d); }
+.tier-badge.tier-a { background: linear-gradient(135deg, #ff9500, #ff6b00); }
+.tier-badge.tier-b { background: linear-gradient(135deg, #2196F3, #1565C0); }
+.tier-badge.tier-c { background: linear-gradient(135deg, #666, #444); }
+.tier-label { font-size: 0.85rem; color: var(--text-secondary); margin-right: 16px; }
+.tier-row { display: flex; align-items: stretch; margin-bottom: 4px; border-radius: var(--radius-md); overflow: hidden; background: rgba(255,255,255,0.02); }
+.tier-row-label { width: 60px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; flex-shrink: 0; }
+.tier-row.tier-s .tier-row-label { background: linear-gradient(180deg, #ff6b35, #ff2d2d); }
+.tier-row.tier-a .tier-row-label { background: linear-gradient(180deg, #ff9500, #ff6b00); }
+.tier-row.tier-b .tier-row-label { background: linear-gradient(180deg, #2196F3, #1565C0); }
+.tier-row.tier-c .tier-row-label { background: linear-gradient(180deg, #555, #333); }
+.tier-items { display: flex; gap: 8px; padding: 10px 16px; flex-wrap: wrap; flex: 1; background: rgba(255,255,255,0.03); }
+.tier-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 14px; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.06); transition: var(--transition); cursor: default; min-width: 70px; }
+.tier-item:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+.tier-item-icon { font-size: 1.8rem; }
+.tier-item-name { font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); text-align: center; }
+
+/* 技巧区域 */
+.tips-section { background: var(--dark-bg2); }
+.tips-categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.tip-category { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); }
+.tip-category:hover { border-color: rgba(230,57,70,0.4); box-shadow: var(--shadow-glow); }
+.tip-category-header { padding: 20px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(230,57,70,0.05); }
+.tip-category-header i { font-size: 1.5rem; color: var(--primary); }
+.tip-category-header h3 { font-size: 1.1rem; font-weight: 700; flex: 1; }
+.tip-count { font-size: 0.8rem; color: var(--text-muted); padding: 3px 10px; background: rgba(255,255,255,0.06); border-radius: 50px; }
+.tip-list { padding: 16px; }
+.tip-item { display: flex; gap: 14px; padding: 14px; border-radius: var(--radius-sm); transition: var(--transition); cursor: default; }
+.tip-item:hover { background: rgba(255,255,255,0.03); }
+.tip-icon { width: 38px; height: 38px; border-radius: 10px; background: rgba(230,57,70,0.1); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.tip-content h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--text-primary); }
+.tip-content p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+
+/* 底部 */
+.footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 0 30px; }
+.footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand .logo-icon { font-size: 2rem; }
+.footer-brand .logo-text { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; }
+.footer-brand p { color: var(--text-muted); font-size: 0.9rem; margin-top: 12px; }
+.footer-links h4, .footer-social h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; color: var(--text-primary); }
+.footer-links a { display: block; color: var(--text-muted); font-size: 0.85rem; padding: 4px 0; transition: var(--transition); }
+.footer-links a:hover { color: var(--primary); padding-left: 4px; }
+.social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-icons a { width: 40px; height: 40px; border-radius: 10px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: var(--text-secondary); transition: var(--transition); font-size: 1.2rem; }
+.social-icons a:hover { background: var(--primary); color: white; transform: translateY(-3px); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; text-align: center; }
+.footer-bottom p { color: var(--text-muted); font-size: 0.8rem; opacity: 0.7; margin-bottom: 4px; }
+
+/* 回到顶部 */
+.back-to-top { position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px; border-radius: 50%; background: var(--gradient-primary); color: white; border: none; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transform: translateY(20px); transition: var(--transition); z-index: 999; box-shadow: 0 4px 20px rgba(230,57,70,0.4); }
+.back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+.back-to-top:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(230,57,70,0.5); }
+
+/* 响应式 */
+@media (max-width: 1024px) { .hero-main-title { font-size: 4rem; } .footer-content { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) {
+    .section { padding: 60px 0; } .section-title { font-size: 2rem; }
+    .hero-main-title { font-size: 2.8rem; } .hero-sub-text { font-size: 1.3rem; } .hero-desc { font-size: 0.95rem; } .hero-stats { gap: 20px; } .stat-num { font-size: 1.5rem; }
+    .nav-menu { position: fixed; top: 70px; left: 0; right: 0; background: rgba(10,10,15,0.98); flex-direction: column; padding: 20px; gap: 4px; transform: translateY(-100%); opacity: 0; transition: var(--transition); pointer-events: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-menu.show { transform: translateY(0); opacity: 1; pointer-events: all; }
+    .nav-link { width: 100%; text-align: center; padding: 14px; } .nav-toggle { display: block; }
+    .legends-grid, .weapons-grid { grid-template-columns: 1fr; } .maps-grid { grid-template-columns: 1fr; }
+    .tips-categories { grid-template-columns: 1fr; } .footer-content { grid-template-columns: 1fr; gap: 30px; }
+    .tier-row-label { width: 44px; font-size: 1.3rem; }
+}
+@media (max-width: 480px) { .hero-main-title { font-size: 2rem; } .hero-sub-text { font-size: 1.1rem; } .hero-buttons .btn { padding: 12px 24px; font-size: 0.9rem; } .section-title { font-size: 1.6rem; } }
+
+/* 模态框 */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: var(--transition); }
+.modal-overlay.show { opacity: 1; visibility: visible; }
+.modal-content { background: var(--dark-bg3); border: 1px solid var(--card-border); border-radius: var(--radius-xl); max-width: 560px; width: 100%; max-height: 85vh; overflow-y: auto; transform: scale(0.9) translateY(20px); transition: var(--transition); }
+.modal-overlay.show .modal-content { transform: scale(1) translateY(0); }
+.modal-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); border: none; color: white; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+.modal-close:hover { background: var(--primary); }
+.modal-header { padding: 30px 30px 20px; display: flex; align-items: center; gap: 20px; position: relative; }
+.modal-header .legend-avatar { font-size: 4rem; }
+.modal-header-info h2 { font-size: 1.6rem; font-weight: 700; }
+.modal-header-info .legend-name-en { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+.modal-body { padding: 0 30px 30px; }
+.modal-body p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.8; margin-bottom: 20px; }
+.modal-skills { display: flex; flex-direction: column; gap: 14px; }
+.modal-skill { background: rgba(255,255,255,0.03); border-radius: var(--radius-md); padding: 14px 16px; }
+.modal-skill-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.modal-skill-header .skill-icon { width: 30px; height: 30px; }
+.modal-skill-header h4 { font-size: 0.9rem; font-weight: 700; }
+.modal-skill p { font-size: 0.85rem; margin-bottom: 0; padding-left: 40px; }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--dark-bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }

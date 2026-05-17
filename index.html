@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Legends 英雄攻略站</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">
+                    <span class="logo-icon">⚔️</span>
+                    <span class="logo-text">APEX<span class="logo-accent">攻略</span></span>
+                </a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">首页</a>
+                <a href="#legends" class="nav-link">英雄</a>
+                <a href="#weapons" class="nav-link">武器</a>
+                <a href="#maps" class="nav-link">地图</a>
+                <a href="#tips" class="nav-link">技巧</a>
+                <a href="#tierlist" class="nav-link">版本排行</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页英雄区 -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-bg-video">
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-subtitle">RESPAWN 娱乐出品</span>
+                <span class="hero-main-title">APEX LEGENDS</span>
+                <span class="hero-sub-text">终极英雄攻略站</span>
+            </h1>
+            <p class="hero-desc">
+                全面深入的 Apex Legends 游戏指南 — 从英雄技能解析到武器数据评测，<br>
+                从地图战略要点到高手进阶技巧，助你成为 Apex 冠军！
+            </p>
+            <div class="hero-buttons">
+                <a href="#legends" class="btn btn-primary">
+                    <i class="fas fa-chess-knight"></i> 探索英雄
+                </a>
+                <a href="#tips" class="btn btn-secondary">
+                    <i class="fas fa-lightbulb"></i> 进阶技巧
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num">25+</span>
+                    <span class="stat-label">英雄</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">30+</span>
+                    <span class="stat-label">武器</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">5</span>
+                    <span class="stat-label">张地图</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">20M+</span>
+                    <span class="stat-label">周活跃玩家</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>向下滚动</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- 英雄区域 -->
+    <section id="legends" class="section legends-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">传奇<span class="accent">英雄</span></h2>
+                <p class="section-desc">深入了解每位传奇的独特技能与战术定位，找到最适合你的战斗风格</p>
+                <div class="legend-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="突击">突击</button>
+                    <button class="filter-btn" data-filter="侦察">侦察</button>
+                    <button class="filter-btn" data-filter="控制">控制</button>
+                    <button class="filter-btn" data-filter="支援">支援</button>
+                    <button class="filter-btn" data-filter="散兵">散兵</button>
+                </div>
+            </div>
+            <div class="legends-grid" id="legendsGrid"></div>
+        </div>
+    </section>
+
+    <!-- 武器区域 -->
+    <section id="weapons" class="section weapons-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">武器<span class="accent">图鉴</span></h2>
+                <p class="section-desc">全面解析每把武器的数据、配件搭配与实战表现</p>
+                <div class="weapon-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="突击步枪">突击步枪</button>
+                    <button class="filter-btn" data-filter="冲锋枪">冲锋枪</button>
+                    <button class="filter-btn" data-filter="轻机枪">轻机枪</button>
+                    <button class="filter-btn" data-filter="猎击枪">猎击枪</button>
+                    <button class="filter-btn" data-filter="霢弹枪">霢弹枪</button>
+                    <button class="filter-btn" data-filter="手枪">手枪</button>
+                    <button class="filter-btn" data-filter="射手步枪">射手步枪</button>
+                    <button class="filter-btn" data-filter="投掷物">投掷物</button>
+                </div>
+            </div>
+            <div class="weapons-grid" id="weaponsGrid"></div>
+        </div>
+    </section>
+
+    <!-- 地图区域 -->
+    <section id="maps" class="section maps-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">地图<span class="accent">攻略</span></h2>
+                <p class="section-desc">熟悉每张地图的关键位置、热区与战术路线</p>
+            </div>
+            <div class="maps-grid" id="mapsGrid"></div>
+        </div>
+    </section>
+
+    <!-- 版本排行区域 -->
+    <section id="tierlist" class="section tierlist-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">版本<span class="accent">排行</span></h2>
+                <p class="section-desc">当前版本英雄强度排行 | 基于高分段数据与职业赛场表现</p>
+                <div class="tier-legend">
+                    <span class="tier-badge tier-s">S</span>
+                    <span class="tier-label">T0 版本之子</span>
+                    <span class="tier-badge tier-a">A</span>
+                    <span class="tier-label">T1 强势选择</span>
+                    <span class="tier-badge tier-b">B</span>
+                    <span class="tier-label">T2 可用</span>
+                    <span class="tier-badge tier-c">C</span>
+                    <span class="tier-label">T3 弱势</span>
+                </div>
+            </div>
+            <div class="tierlist-container" id="tierlistContainer"></div>
+        </div>
+    </section>
+
+    <!-- 技巧区域 -->
+    <section id="tips" class="section tips-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">进阶<span class="accent">技巧</span></h2>
+                <p class="section-desc">从基础到精通，全面提升你的 Apex 实力</p>
+            </div>
+            <div class="tips-categories" id="tipsContainer"></div>
+        </div>
+    </section>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">⚔️</span>
+                    <span class="logo-text">APEX<span class="logo-accent">攻略</span></span>
+                    <p>最全面的 Apex Legends 中文攻略站</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <a href="#legends">英雄图鉴</a>
+                    <a href="#weapons">武器数据</a>
+                    <a href="#maps">地图攻略</a>
+                    <a href="#tips">进阶技巧</a>
+                </div>
+                <div class="footer-links">
+                    <h4>游戏信息</h4>
+                    <a href="https://www.ea.com/games/apex-legends" target="_blank">官方网站</a>
+                    <a href="https://apexlegends.fandom.com/wiki/Apex_Legends_Wiki" target="_blank">Wiki</a>
+                    <a href="https://www.twitch.tv/directory/game/Apex%20Legends" target="_blank">Twitch</a>
+                </div>
+                <div class="footer-social">
+                    <h4>社交平台</h4>
+                    <div class="social-icons">
+                        <a href="#" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+                        <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
+                        <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 APEX攻略站 | 非官方站点 · 仅供学习参考</p>
+                <p>Apex Legends 是 Respawn Entertainment 和 Electronic Arts 的商标</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部 -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
